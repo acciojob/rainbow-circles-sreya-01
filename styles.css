@@ -1,1 +1,73 @@
 /*  your css code here. If applicable */
+/* Base styling for all circles */
+#outer, #middle, #inner {
+    border-radius: 50%;          /* Makes the divs circular */
+    display: flex;               /* Flexbox to center child divs */
+    justify-content: center;
+    align-items: center;
+	position: relative;
+}
+
+/* Outer circle: 300px, red */
+#outer {
+    width: 300px;
+    height: 300px;
+    background-color: #ff0000;   /* Red */
+}
+
+/* Second circle: 250px, orange */
+#middle {
+    width: 250px;
+    height: 250px;
+    background-color: #ffa500;   /* Orange */
+    margin: auto;
+}
+
+/* Inner circle: 200px, yellow */
+#inner {
+    width: 200px;
+    height: 200px;
+    background-color: #ffff00;   /* Yellow */
+    margin: auto;
+}
+
+/* Additional circles using pseudo-elements */
+#inner::before, #inner::after {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+	top: 50%;                     /* Positioning at the center of the parent */
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Centering the circle */
+}
+
+/* Fourth circle: 150px, green */
+#inner::before {
+    width: 150px;
+    height: 150px;
+    background-color: #008000;   /* Green */
+}
+
+/* Fifth circle: 100px, blue */
+#inner::after {
+    width: 100px;
+    height: 100px;
+    background-color: #0000ff;   /* Blue */
+    top: 25px;  /* Center the blue circle */
+    left: 25px;
+}
+
+/* Last circle: 50px, purple */
+#inner::after::before {
+    content: "";
+    width: 50px;
+	height: 50px;
+    background-color: #800080;  /* Purple */
+    position: absolute;
+    top: 25px;                  /* Centers the purple circle */
+    left: 25px;
+    border-radius: 50%;         /* Ensures the circle shape */
+	top: 50%;                     /* Positioning at the center */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
